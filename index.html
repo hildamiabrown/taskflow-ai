@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TaskFlow AI</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="workspace" aria-label="TaskFlow AI productivity assistant">
+        <aside class="planner-panel">
+          <div class="brand-row">
+            <div class="brand-mark" aria-hidden="true">TF</div>
+            <div>
+              <p class="eyebrow">AI Productivity Assistant</p>
+              <h1>TaskFlow AI</h1>
+            </div>
+          </div>
+
+          <form id="task-form" class="task-form">
+            <label for="task-input">Add a task</label>
+            <div class="input-row">
+              <input
+                id="task-input"
+                type="text"
+                placeholder="Draft client proposal"
+                autocomplete="off"
+                required
+              />
+              <button type="submit" aria-label="Add task">+</button>
+            </div>
+
+            <div class="field-grid">
+              <label>
+                Impact
+                <select id="impact">
+                  <option value="5">Critical</option>
+                  <option value="4" selected>High</option>
+                  <option value="3">Medium</option>
+                  <option value="2">Low</option>
+                </select>
+              </label>
+              <label>
+                Effort
+                <select id="effort">
+                  <option value="1">Quick</option>
+                  <option value="2" selected>Moderate</option>
+                  <option value="3">Focused</option>
+                  <option value="4">Deep Work</option>
+                </select>
+              </label>
+              <label>
+                Due
+                <select id="due">
+                  <option value="5">Today</option>
+                  <option value="4" selected>Tomorrow</option>
+                  <option value="3">This Week</option>
+                  <option value="2">Flexible</option>
+                </select>
+              </label>
+              <label>
+                Energy
+                <select id="energy">
+                  <option value="5">Peak</option>
+                  <option value="4" selected>Steady</option>
+                  <option value="3">Light</option>
+                </select>
+              </label>
+            </div>
+          </form>
+
+          <div class="prompt-card">
+            <p class="eyebrow">Structured Prompt Workflow</p>
+            <p id="prompt-preview">
+              Prioritize tasks using impact, deadline pressure, effort, and energy fit. Generate a daily plan with clear next actions.
+            </p>
+          </div>
+        </aside>
+
+        <section class="dashboard" aria-label="AI generated schedule">
+          <header class="dashboard-header">
+            <div>
+              <p class="eyebrow">Dynamic Output</p>
+              <h2>Today&apos;s optimized plan</h2>
+            </div>
+            <button id="optimize-btn" class="primary-button">Optimize</button>
+          </header>
+
+          <div class="stats-grid">
+            <article>
+              <span id="task-count">0</span>
+              <p>Tasks captured</p>
+            </article>
+            <article>
+              <span id="focus-time">0h</span>
+              <p>Estimated focus</p>
+            </article>
+            <article>
+              <span id="accuracy-score">92%</span>
+              <p>Prompt confidence</p>
+            </article>
+          </div>
+
+          <div class="content-grid">
+            <section class="task-list-panel">
+              <div class="panel-heading">
+                <h3>Priority queue</h3>
+                <button id="seed-btn" class="ghost-button">Load sample</button>
+              </div>
+              <ul id="task-list" class="task-list" aria-live="polite"></ul>
+            </section>
+
+            <section class="schedule-panel">
+              <div class="panel-heading">
+                <h3>Daily schedule</h3>
+                <span id="schedule-note">Waiting for tasks</span>
+              </div>
+              <ol id="schedule-list" class="schedule-list" aria-live="polite"></ol>
+            </section>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
